@@ -1,0 +1,22 @@
+.text {
+    width: 100%;
+    background-color: #FFF;
+    padding: 15px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--sec-dark);
+}
+
+.quote-author {
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.quote-text {
+    margin: -0em 0 1em 0;
+    line-height: 1.4em;
+    width: 100%;
+    font-size: 1.3em;
+    text-indent: 35px;
+}
