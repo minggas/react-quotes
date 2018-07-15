@@ -4,9 +4,7 @@ import './style.css';
 function Text(props) {
     return (
         <div className="text">
-            <p id="text" className="quote-text">
-                {props.quote}
-            </p>
+            <div id="text" className="quote-text" dangerouslySetInnerHTML={props.quote} />
             <p id="author" className="quote-author">
                 {props.author}
             </p>
