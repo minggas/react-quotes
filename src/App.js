@@ -35,9 +35,9 @@ class App extends React.Component {
       })
       .then(json => this.changeData(json[0]));
   }
-  changeData(data) {    
+  changeData(data) { 
     this.setState({
-      quote: data.content.replace(/(<([^>]+)>)/gi, ""),
+      quote: data.content,
       author: data.title,
       getQuote: false
     });
@@ -46,10 +46,11 @@ class App extends React.Component {
     this.fetchData();
   }
   render() {
+    const quote = { __html: this.state.quote };
     return (
       <div className="container" id="quote-box">
         <h1 className="title">Quote-O-Matic</h1>
-        <Text quote={this.state.quote} author={this.state.author} />
+        <Text quote={quote} author={this.state.author} />
         <Buttons quote={this.state.quote} author={this.state.author} onClick={this.handleClick} />
       </div>
     );
