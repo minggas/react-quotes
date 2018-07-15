@@ -38,8 +38,7 @@ class App extends React.Component {
   changeData(data) { 
     this.setState({
       quote: data.content,
-      author: data.title,
-      getQuote: false
+      author: data.title
     });
   }
   handleClick() {
