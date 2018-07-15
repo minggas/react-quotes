@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Buttons from './components/Buttons';
 import Text from './components/Text';
 import './App.css';
@@ -20,22 +21,20 @@ class App extends React.Component {
     this.fetchData();
   }
   fetchData() {
-    fetch(
-      "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=",
-      {
-        cache: "no-store"
-      }
-    )
+    axios.get(`https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&timestamp=${new Date().getTime()}`)
       .then(res => {
-        if (res.ok) {
-          return res.json();
+        if (res.status === 200) {
+          return res.data[0];
         } else {
-          throw new Error("Error fetching");
+          throw new Error("Error " + res.status);
         }
       })
-      .then(json => this.changeData(json[0]));
+      .then(json => this.changeData(json))
+      .catch(err => {
+        console.log(`${err} whilst contacting the quote API.`)
+      });
   }
-  changeData(data) { 
+  changeData(data) {
     this.setState({
       quote: data.content,
       author: data.title
