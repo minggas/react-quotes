@@ -47,7 +47,7 @@ class App extends React.Component {
     const quote = { __html: this.state.quote };
     return (
       <div className="container" id="quote-box">
-        <h1 className="title">Quote-O-Matic</h1>
+        <h2 className="title">Quote-O-Matic</h2>
         <Text quote={quote} author={this.state.author} />
         <Buttons quote={this.state.quote} author={this.state.author} onClick={this.handleClick} />
       </div>
