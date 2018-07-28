@@ -1,9 +1,7 @@
-import React from 'react';
-import axios from 'axios';
-import Buttons from './components/Buttons';
-import Text from './components/Text';
-import './App.css';
-
+import React from "react";
+import axios from "axios";
+import Buttons from "./components/Buttons";
+import Text from "./components/Text";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +9,8 @@ class App extends React.Component {
 
     this.state = {
       quote: "",
-      author: ""
+      author: "",
+      show: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -21,7 +20,10 @@ class App extends React.Component {
     this.fetchData();
   }
   fetchData() {
-    axios.get(`https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&timestamp=${new Date().getTime()}`)
+    axios
+      .get(
+        `https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&timestamp=${new Date().getTime()}`
+      )
       .then(res => {
         if (res.status === 200) {
           return res.data[0];
@@ -31,31 +33,50 @@ class App extends React.Component {
       })
       .then(json => this.changeData(json))
       .catch(err => {
-        console.log(`${err} whilst contacting the quote API.`)
+        console.log(`${err} whilst contacting the quote API.`);
       });
   }
   changeData(data) {
     this.setState({
-      quote: data.content,
-      author: data.title
+      quote: stripHtml(data.content),
+      author: data.title,
+      show: true
     });
   }
   handleClick() {
+    this.setState({ show: false });
     this.fetchData();
   }
   render() {
-    const quote = { __html: this.state.quote };
+    const twitterMsg = '"' + this.state.quote + '"\n ' + this.state.author;
     return (
       <div className="container" id="quote-box">
         <h2 className="title">Quote-O-Matic</h2>
-        <Text quote={quote} author={this.state.author} />
-        <Buttons quote={this.state.quote} author={this.state.author} onClick={this.handleClick} />
+        <Text
+          quote={this.state.quote}
+          author={this.state.author}
+          className={["text", this.state.show && "show"].join(" ")}
+        />
+        <Buttons msg={twitterMsg} onClick={this.handleClick} />
       </div>
     );
   }
 }
 
+function stripHtml(html) {
+  // Create a new div element
+  if (html) {
+    var temporalDivElement = document.createElement("div");
+    // Set the HTML content with the providen
+    temporalDivElement.innerHTML = html;
+    // Retrieve the text property of the element (cross-browser support)
 
-
+    return (
+      temporalDivElement.querySelector("p").textContent ||
+      temporalDivElement.querySelector("p").innerText ||
+      ""
+    );
+  }
+}
 
 export default App;
