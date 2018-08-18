@@ -4,7 +4,7 @@ import "./scss/main.scss";
 import App from "./App";
 import Footer from "./components/Footer";
 import GitRibbon from "./components/GitRibbon";
-import registerServiceWorker from "./registerServiceWorker";
+//import registerServiceWorker from "./registerServiceWorker";
 
 ReactDOM.render(
   <div>
@@ -16,4 +16,4 @@ ReactDOM.render(
   </div>,
   document.getElementById("root")
 );
-registerServiceWorker();
+//registerServiceWorker();
