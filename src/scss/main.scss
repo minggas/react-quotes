@@ -31,6 +31,7 @@ a {
   overflow: hidden;
   .container {
     width: 100%;
+    max-width: 50rem;
     background-color: $primary-color;
     padding: 0.5rem 3vw;
     border-radius: 5px;
@@ -43,5 +44,12 @@ a {
       margin-bottom: 0.8rem;
       color: set-text-color($primary-color);
     }
+  }
+}
+
+.footer-icons svg {
+  @include easeOut();
+  &:hover {
+    fill: blue;
   }
 }

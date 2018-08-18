@@ -10,9 +10,7 @@ ReactDOM.render(
   <div>
     <GitRibbon />
     <App />
-    <Footer link={"https://minggas.website"} title={"Link to Minggas Website"}>
-      Minggas
-    </Footer>
+    <Footer />
   </div>,
   document.getElementById("root")
 );
