@@ -12,9 +12,6 @@ class App extends React.Component {
       author: "",
       show: false
     };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.changeData = this.changeData.bind(this);
   }
   componentDidMount() {
     this.fetchData();
@@ -36,17 +33,17 @@ class App extends React.Component {
         console.log(`${err} whilst contacting the quote API.`);
       });
   }
-  changeData(data) {
+  changeData = data => {
     this.setState({
       quote: stripHtml(data.content),
       author: data.title,
       show: true
     });
-  }
-  handleClick() {
+  };
+  handleClick = () => {
     this.setState({ show: false });
     this.fetchData();
-  }
+  };
   render() {
     const twitterMsg = '"' + this.state.quote + '"\n ' + this.state.author;
     return (
