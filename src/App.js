@@ -40,9 +40,10 @@ class App extends React.Component {
       show: true
     });
   };
-  handleClick = () => {
+  handleClick = e => {
     this.setState({ show: false });
     this.fetchData();
+    e.currentTarget.blur();
   };
   render() {
     const twitterMsg = '"' + this.state.quote + '"\n ' + this.state.author;
