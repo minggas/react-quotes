@@ -31,7 +31,7 @@
   font-size: 1.2em;
   @include easeOut();
   cursor: pointer;
-  &:hover {
+  &:active {
     background-color: darken($primary-color, 25);
     color: set-text-color(darken($primary-color, 25));
     border-color: set-text-color(darken($primary-color, 25));
