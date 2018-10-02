@@ -5,7 +5,7 @@
 Here i'm using:
 
 - HTML 5
-- Sass
+- SCSS
 - React (Using create-react-app)
 - axios to retrive the quotes on https://quotesondesign.com API
 
