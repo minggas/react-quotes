@@ -1,4 +1,15 @@
 {
-  "main.css": "static/css/main.e9c48582.css",
-  "main.js": "static/js/main.4aeb2ba6.js"
+  "files": {
+    "main.css": "/react-quotes/static/css/main.ba19c120.chunk.css",
+    "main.js": "/react-quotes/static/js/main.cd7d4c90.chunk.js",
+    "main.js.map": "/react-quotes/static/js/main.cd7d4c90.chunk.js.map",
+    "runtime~main.js": "/react-quotes/static/js/runtime~main.e47a8ed2.js",
+    "runtime~main.js.map": "/react-quotes/static/js/runtime~main.e47a8ed2.js.map",
+    "static/js/2.8b429a8f.chunk.js": "/react-quotes/static/js/2.8b429a8f.chunk.js",
+    "static/js/2.8b429a8f.chunk.js.map": "/react-quotes/static/js/2.8b429a8f.chunk.js.map",
+    "index.html": "/react-quotes/index.html",
+    "precache-manifest.c687c9733d532e978af9be574c291572.js": "/react-quotes/precache-manifest.c687c9733d532e978af9be574c291572.js",
+    "service-worker.js": "/react-quotes/service-worker.js",
+    "static/css/main.ba19c120.chunk.css.map": "/react-quotes/static/css/main.ba19c120.chunk.css.map"
+  }
 }
