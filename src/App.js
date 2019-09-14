@@ -1,8 +1,8 @@
-import React from 'react';
-import Buttons from './components/Buttons';
-import Text from './components/Text';
-import './App.css';
-
+import React from "react";
+import axios from "axios";
+import Buttons from "./components/Buttons";
+import Text from "./components/Text";
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,44 +20,46 @@ class App extends React.Component {
     this.fetchData();
   }
   fetchData() {
-    fetch(
-      "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=",
-      {
-        cache: "no-store"
-      }
-    )
+    axios
+      .get("https://api.quotable.io/random")
       .then(res => {
-        if (res.ok) {
-          return res.json();
+        if (res.status === 200) {
+          return res.data;
         } else {
           throw new Error("Error fetching");
         }
       })
       .then(json => this.changeData(json[0]));
   }
-  changeData(data) { 
+
+  changeData = data => {
+    const wrapper = document.getElementById("wrapper");
+    wrapper.classList.add("show");
     this.setState({
       quote: data.content,
-      author: data.title,
-      getQuote: false
+      author: data.author,
+      show: true
     });
-  }
-  handleClick() {
+  };
+  handleClick = e => {
+    const wrapper = document.getElementById("wrapper");
+    wrapper.classList.remove("show");
     this.fetchData();
-  }
+  };
   render() {
-    const quote = { __html: this.state.quote };
+    const twitterMsg = '"' + this.state.quote + '"\n ' + this.state.author;
     return (
       <div className="container" id="quote-box">
-        <h1 className="title">Quote-O-Matic</h1>
-        <Text quote={quote} author={this.state.author} />
-        <Buttons quote={this.state.quote} author={this.state.author} onClick={this.handleClick} />
+        <h2 className="title">Quote-O-Matic</h2>
+        <Text
+          quote={this.state.quote}
+          author={this.state.author}
+          className={"text"}
+        />
+        <Buttons msg={twitterMsg} onClick={this.handleClick} />
       </div>
     );
   }
 }
-
-
-
 
 export default App;
