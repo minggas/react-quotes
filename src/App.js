@@ -18,12 +18,10 @@ class App extends React.Component {
   }
   fetchData() {
     axios
-      .get(
-        `https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&timestamp=${new Date().getTime()}`
-      )
+      .get("https://api.quotable.io/random")
       .then(res => {
         if (res.status === 200) {
-          return res.data[0];
+          return res.data;
         } else {
           throw new Error("Error " + res.status);
         }
@@ -34,14 +32,17 @@ class App extends React.Component {
       });
   }
   changeData = data => {
+    const wrapper = document.getElementById("wrapper");
+    wrapper.classList.add("show");
     this.setState({
-      quote: stripHtml(data.content),
-      author: data.title,
+      quote: data.content,
+      author: data.author,
       show: true
     });
   };
   handleClick = e => {
-    this.setState({ show: false });
+    const wrapper = document.getElementById("wrapper");
+    wrapper.classList.remove("show");
     this.fetchData();
   };
   render() {
@@ -52,26 +53,10 @@ class App extends React.Component {
         <Text
           quote={this.state.quote}
           author={this.state.author}
-          className={["text", this.state.show && "show"].join(" ")}
+          className={"text"}
         />
         <Buttons msg={twitterMsg} onClick={this.handleClick} />
       </div>
-    );
-  }
-}
-
-function stripHtml(html) {
-  // Create a new div element
-  if (html) {
-    var temporalDivElement = document.createElement("div");
-    // Set the HTML content with the providen
-    temporalDivElement.innerHTML = html;
-    // Retrieve the text property of the element (cross-browser support)
-
-    return (
-      temporalDivElement.querySelector("p").textContent ||
-      temporalDivElement.querySelector("p").innerText ||
-      ""
     );
   }
 }
