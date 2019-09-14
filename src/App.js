@@ -4,17 +4,16 @@ import Buttons from "./components/Buttons";
 import Text from "./components/Text";
 import "./App.css";
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       quote: "",
-      author: ""
+      author: "",
+      show: false
     };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.changeData = this.changeData.bind(this);
   }
   componentDidMount() {
     this.fetchData();
@@ -26,10 +25,13 @@ class App extends React.Component {
         if (res.status === 200) {
           return res.data;
         } else {
-          throw new Error("Error fetching");
+          throw new Error("Error " + res.status);
         }
       })
-      .then(json => this.changeData(json[0]));
+      .then(json => this.changeData(json))
+      .catch(err => {
+        console.log(`${err} whilst contacting the quote API.`);
+      });
   }
 
   changeData = data => {

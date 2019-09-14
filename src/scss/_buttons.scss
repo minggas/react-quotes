@@ -1,0 +1,42 @@
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  #new-quote {
+    @extend .btn;
+    padding: 0.8rem 1rem;
+  }
+  #tweet-quote {
+    @extend .btn;
+    width: 1.5rem;
+    height: auto;
+    position: relative;
+    .icon {
+      fill: set-text-color($primary-color);
+      width: 2.2rem;
+      position: absolute;
+      top: 0;
+      right: 0.3rem;
+    }
+  }
+}
+
+.btn {
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  border: 3px solid;
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  margin: 0.8rem 0;
+  font-size: 1.2em;
+  @include easeOut();
+  cursor: pointer;
+  &:active {
+    background-color: darken($primary-color, 25);
+    color: set-text-color(darken($primary-color, 25));
+    border-color: set-text-color(darken($primary-color, 25));
+    .icon {
+      fill: set-text-color(darken($primary-color, 25));
+    }
+  }
+}

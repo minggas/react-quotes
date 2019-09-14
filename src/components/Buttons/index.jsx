@@ -1,5 +1,4 @@
-import React from 'react';
-import './style.css';
+import React from "react";
 
 function Buttons(props) {
   const end =
@@ -17,6 +16,7 @@ function Buttons(props) {
   );
 }
 
+
 function IconTwitter(props) {
   return (
     <svg
@@ -29,5 +29,4 @@ function IconTwitter(props) {
   );
 }
 
-
-  export default Buttons;
+export default Buttons;
