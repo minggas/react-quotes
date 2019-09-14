@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import Buttons from "./components/Buttons";
 import Text from "./components/Text";
+import "./App.css";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -31,6 +33,7 @@ class App extends React.Component {
         console.log(`${err} whilst contacting the quote API.`);
       });
   }
+
   changeData = data => {
     const wrapper = document.getElementById("wrapper");
     wrapper.classList.add("show");
