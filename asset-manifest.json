@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-quotes/static/css/main.ba19c120.chunk.css",
-    "main.js": "/react-quotes/static/js/main.cd7d4c90.chunk.js",
-    "main.js.map": "/react-quotes/static/js/main.cd7d4c90.chunk.js.map",
-    "runtime~main.js": "/react-quotes/static/js/runtime~main.e47a8ed2.js",
-    "runtime~main.js.map": "/react-quotes/static/js/runtime~main.e47a8ed2.js.map",
-    "static/js/2.8b429a8f.chunk.js": "/react-quotes/static/js/2.8b429a8f.chunk.js",
-    "static/js/2.8b429a8f.chunk.js.map": "/react-quotes/static/js/2.8b429a8f.chunk.js.map",
+    "main.css": "/react-quotes/static/css/main.3af50c52.chunk.css",
+    "main.js": "/react-quotes/static/js/main.a2e49701.chunk.js",
+    "main.js.map": "/react-quotes/static/js/main.a2e49701.chunk.js.map",
+    "runtime~main.js": "/react-quotes/static/js/runtime~main.498c477a.js",
+    "runtime~main.js.map": "/react-quotes/static/js/runtime~main.498c477a.js.map",
+    "static/js/2.741dd21f.chunk.js": "/react-quotes/static/js/2.741dd21f.chunk.js",
+    "static/js/2.741dd21f.chunk.js.map": "/react-quotes/static/js/2.741dd21f.chunk.js.map",
     "index.html": "/react-quotes/index.html",
-    "precache-manifest.c687c9733d532e978af9be574c291572.js": "/react-quotes/precache-manifest.c687c9733d532e978af9be574c291572.js",
+    "precache-manifest.7ad22c6a53da1345f6f89bce354e7e0f.js": "/react-quotes/precache-manifest.7ad22c6a53da1345f6f89bce354e7e0f.js",
     "service-worker.js": "/react-quotes/service-worker.js",
-    "static/css/main.ba19c120.chunk.css.map": "/react-quotes/static/css/main.ba19c120.chunk.css.map"
+    "static/css/main.3af50c52.chunk.css.map": "/react-quotes/static/css/main.3af50c52.chunk.css.map"
   }
 }
