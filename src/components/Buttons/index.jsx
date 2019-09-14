@@ -6,7 +6,7 @@ function Buttons(props) {
     encodeURIComponent(props.msg);
   return (
     <div className="buttons">
-      <a id="tweet-quote" href={end} target="_blank" className="btn-tweet">
+      <a id="tweet-quote" href={end} target="_blank" rel="noopener noreferrer" className="btn-tweet">
         <IconTwitter />
       </a>
       <button id="new-quote" onClick={props.onClick} className="btn-quote">

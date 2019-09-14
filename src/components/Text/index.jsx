@@ -2,7 +2,7 @@ import React from "react";
 
 function Text(props) {
   return (
-    <div className={props.className}>
+    <div id="wrapper" className={props.className}>
       <p id="text" className="quote quote-text">
         {props.quote}
       </p>
